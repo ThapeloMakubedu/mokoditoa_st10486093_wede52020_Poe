@@ -1,91 +1,96 @@
+
+Order · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divine Delights | Order a Cake</title>
+ 
+    <link rel="stylesheet" href="CSS\styles.css">
 </head>
 <body>
-
+ 
     <header>
-        <img src="images/logo.png" alt="Divine Delights Logo" width="150">
+        <img src="IMAGES\logo delights.jpeg" alt="Divine Delights logo" width="150" height="150">
         <h1>Divine Delights</h1>
-        <p><em>Made with Love, Served with Honor</em></p>
+        <p class="tagline">Made with Love, Served with Honor</p>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about_us.html">About Us</a></li>
                 <li><a href="menu.html">Menu &amp; Prices</a></li>
-                <li><a href="order.html">Order a Cake</a></li>
+                <li><a class="current" href="order.html">Order a Cake</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
-
+ 
     <main>
+        <section class="hero">
+            <h2>Custom cake order form</h2>
+            <p>Tell us what you would like and we will get back to you with a quote.</p>
+        </section>
+ 
         <section>
-            <h2>Custom Cake Order Form</h2>
-            <p>Tell us what you would like, and we will get back to you with a quote.</p>
-
             <form action="#" method="post">
-                <p>
-                    <label for="name">Full Name:</label><br>
+                <div class="field">
+                    <label for="name">Full name</label>
                     <input type="text" id="name" name="name" required>
-                </p>
-
-                <p>
-                    <label for="contact">Contact Number or Email:</label><br>
+                </div>
+ 
+                <div class="field">
+                    <label for="contact">Contact number or email</label>
                     <input type="text" id="contact" name="contact" required>
-                </p>
-
-                <p>
-                    <label for="cakeType">Cake Type:</label><br>
+                </div>
+ 
+                <div class="field">
+                    <label for="cakeType">Cake type</label>
                     <select id="cakeType" name="cakeType">
-                        <option value="basic">Basic Cake (R300)</option>
-                        <option value="custom">Custom Cake (From R500)</option>
-                        <option value="premium">Premium Cake (From R650)</option>
+                        <option value="basic">Basic cake (R300)</option>
+                        <option value="custom">Custom cake (from R500)</option>
+                        <option value="premium">Premium cake (from R650)</option>
                         <option value="cupcakes">Cupcakes</option>
-                        <option value="bento">Bento Cake</option>
+                        <option value="bento">Bento cake</option>
                     </select>
-                </p>
-
-                <p>
-                    <label for="flavour">Preferred Flavour:</label><br>
+                </div>
+ 
+                <div class="field">
+                    <label for="flavour">Preferred flavour</label>
                     <select id="flavour" name="flavour">
                         <option value="chocolate">Chocolate</option>
                         <option value="vanilla">Vanilla</option>
                         <option value="blueberry">Blueberry</option>
                         <option value="caramel">Caramel</option>
-                        <option value="redvelvet">Red Velvet</option>
+                        <option value="redvelvet">Red velvet</option>
                         <option value="carrot">Carrot</option>
                     </select>
-                </p>
-
-                <p>
-                    <label for="description">Describe What You Want:</label><br>
-                    <textarea id="description" name="description" rows="5" cols="40"></textarea>
-                </p>
-
-                <p>
-                    <label for="picture">Upload a Reference Picture:</label><br>
+                </div>
+ 
+                <div class="field">
+                    <label for="description">Describe what you want</label>
+                    <textarea id="description" name="description" rows="5"></textarea>
+                </div>
+ 
+                <div class="field">
+                    <label for="picture">Upload a reference picture</label>
                     <input type="file" id="picture" name="picture" accept="image/*">
-                </p>
-
-                <p>
-                    <label for="allergies">Allergies or Dietary Restrictions:</label><br>
-                    <textarea id="allergies" name="allergies" rows="3" cols="40"></textarea>
-                </p>
-
-                <p>
-                    <input type="submit" value="Submit Order Request">
-                </p>
+                </div>
+ 
+                <div class="field">
+                    <label for="allergies">Allergies or dietary restrictions</label>
+                    <textarea id="allergies" name="allergies" rows="3"></textarea>
+                </div>
+ 
+                <button class="button" type="submit">Send order request</button>
             </form>
         </section>
     </main>
-
+ 
     <footer>
         <p>Divine Delights &mdash; Pretoria West, South Africa</p>
     </footer>
-
+ 
 </body>
 </html>
+ 
