@@ -1,0 +1,495 @@
+/* ==========================================================
+   Divine Delights - style.css
+   External stylesheet linked to every page of the website.
+   Author: Thapelo Mokoditoa
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. CSS RESET
+   Clears the different default styles that browsers add,
+   so the site looks the same in Chrome, Edge and Firefox.
+   ---------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ----------------------------------------------------------
+   2. COLOUR SCHEME AND BASE STYLES
+   The colours are stored once here as variables, so changing
+   one line changes the colour everywhere on the site.
+   ---------------------------------------------------------- */
+:root {
+    --pink-soft: #fbedf1;   /* page background */
+    --pink: #f3c9d6;        /* borders and lines */
+    --plum: #6e2c42;        /* headings */
+    --berry: #a4436b;       /* buttons and links */
+    --cream: #fffdfb;       /* cards and boxes */
+    --ink: #40343a;         /* body text */
+}
+
+body {
+    background-color: var(--pink-soft);
+    color: var(--ink);
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* ----------------------------------------------------------
+   3. TYPOGRAPHY
+   A type scale: each heading steps up in size so the page
+   has a clear order of importance.
+   ---------------------------------------------------------- */
+h1 {
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--plum);
+    line-height: 1.1;
+}
+
+h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--plum);
+    margin-bottom: 0.6em;
+}
+
+h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--plum);
+    margin-bottom: 0.4em;
+}
+
+p {
+    margin-bottom: 1em;
+    max-width: 65ch;   /* keeps lines short and easy to read */
+}
+
+.tagline {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    color: var(--berry);
+}
+
+
+/* ----------------------------------------------------------
+   4. PAGE LAYOUT (CSS GRID)
+   The whole page is a grid with three named areas stacked
+   on top of each other.
+   ---------------------------------------------------------- */
+body {
+    display: grid;
+    grid-template-areas:
+        "pageheader"
+        "pagemain"
+        "pagefooter";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+header {
+    grid-area: pageheader;
+}
+
+main {
+    grid-area: pagemain;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0 3rem 0;
+}
+
+footer {
+    grid-area: pagefooter;
+}
+
+
+/* ----------------------------------------------------------
+   5. HEADER AND NAVIGATION (FLEXBOX)
+   The logo and business name sit together on the left as a
+   "brand" group. The nav wraps onto its own line below,
+   which keeps the logo in the top-left corner on any
+   screen size, including small phones.
+   ---------------------------------------------------------- */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    background-color: var(--cream);
+    border-bottom: 3px solid var(--pink);
+    padding: 1rem 1.2rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+header img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;   /* square with softened corners, not a circle */
+    flex-shrink: 0;
+}
+
+.brand-text h1 {
+    font-size: 1.7rem;
+    line-height: 1.1;
+}
+
+.brand-text .tagline {
+    font-size: 0.85rem;
+}
+
+nav {
+    flex-basis: 100%;   /* pushes the nav onto its own row under the brand */
+    order: 3;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav a {
+    display: block;
+    padding: 0.6rem 1.1rem;
+    color: var(--plum);
+    border-radius: 999px;
+    transition: background-color 0.2s;
+}
+
+nav a:hover {
+    background-color: var(--pink);
+}
+
+nav a:focus {
+    outline: 3px solid var(--berry);
+    outline-offset: 2px;
+}
+
+nav a.current {
+    background-color: var(--berry);
+    color: var(--cream);
+}
+
+
+/* ----------------------------------------------------------
+   6. SECTIONS AND CARDS
+   ---------------------------------------------------------- */
+section {
+    background-color: var(--cream);
+    border: 1px solid var(--pink);
+    border-radius: 14px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 14px rgba(110, 44, 66, 0.08);
+}
+
+.hero {
+    background-color: var(--pink);
+    border: none;
+    text-align: center;
+}
+
+/* The homepage banner: a full-width photo with the intro text
+   sitting on top of it, instead of a plain coloured box. The
+   gradient behind the image keeps the white text readable, and
+   the plain --plum background-color is a fallback in case the
+   photo file is missing or hasn't loaded yet. */
+.hero-banner {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background-color: var(--plum);
+    background-image:
+        linear-gradient(rgba(64, 20, 36, 0.55), rgba(64, 20, 36, 0.55)),
+        url("images\300 cake.jpeg");
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 14px;
+    padding: 2.5rem 1.5rem;
+}
+
+.hero-banner-inner {
+    max-width: 500px;
+}
+
+.hero-banner h2,
+.hero-banner p {
+    color: #fff;
+}
+
+.hero-banner p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-banner .button {
+    background-color: #fff;
+    color: var(--berry);
+}
+
+.hero-banner .button:hover {
+    background-color: var(--pink);
+    color: var(--plum);
+}
+
+.hero h2 {
+    font-size: 2.3rem;
+}
+
+.hero p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price-list li,
+.contact-list li {
+    border-bottom: 1px dashed var(--pink);
+    padding: 0.7rem 0;
+}
+
+/* The card grid: three across on desktop, one on mobile */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+}
+
+.card {
+    background-color: var(--pink-soft);
+    border: 1px solid var(--pink);
+    border-radius: 12px;
+    padding: 1.2rem;
+}
+
+
+/* ----------------------------------------------------------
+   7. BUTTONS AND LINKS
+   ---------------------------------------------------------- */
+main a {
+    color: var(--berry);
+    border-bottom: 1px solid var(--pink);
+}
+
+main a:hover {
+    border-bottom-color: var(--berry);
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--berry);
+    color: var(--cream);
+    font-size: 1.05rem;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: var(--plum);
+}
+
+.button:focus {
+    outline: 3px solid var(--plum);
+    outline-offset: 2px;
+}
+
+.button:active {
+    background-color: var(--ink);
+}
+
+
+/* ----------------------------------------------------------
+   8. TABLES (MENU PAGE)
+   ---------------------------------------------------------- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+th,
+td {
+    border: 1px solid var(--pink);
+    padding: 0.8rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    background-color: var(--pink);
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--plum);
+}
+
+tbody tr:hover {
+    background-color: var(--pink-soft);
+}
+
+/* Lets a wide table slide sideways instead of breaking the page */
+.table-scroll {
+    overflow-x: auto;
+}
+
+
+/* ----------------------------------------------------------
+   9. FORMS
+   ---------------------------------------------------------- */
+label {
+    display: block;
+    font-weight: 700;
+    color: var(--plum);
+    margin-bottom: 0.3rem;
+}
+
+.field {
+    margin-bottom: 1.2rem;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.7rem;
+    border: 1px solid var(--pink);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--berry);
+    outline-offset: 1px;
+}
+
+
+/* ----------------------------------------------------------
+   10. FOOTER
+   ---------------------------------------------------------- */
+footer {
+    background-color: var(--plum);
+    color: var(--pink-soft);
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+footer p {
+    margin: 0 auto;
+}
+
+
+/* ==========================================================
+   11. RESPONSIVE DESIGN - MEDIA QUERIES
+   Breakpoints: mobile first, then tablet (600px),
+   then desktop (900px).
+   ========================================================== */
+
+/* TABLET: 600px and up */
+@media screen and (max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* MOBILE: under 600px - everything becomes one column */
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    /* Logo stays a fixed small square top-left; only the text
+       next to it shrinks, so the header stays compact on phones. */
+    header img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .brand-text h1 {
+        font-size: 1.3rem;
+    }
+
+    .brand-text .tagline {
+        font-size: 0.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        width: 94%;
+        padding-top: 1.2rem;
+    }
+
+    section {
+        padding: 1.1rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.3rem;
+    }
+
+    nav a {
+        text-align: center;
+        background-color: var(--pink-soft);
+    }
+}
+
+/* Respect users who ask for less movement */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none;
+    }
+}
