@@ -1,0 +1,879 @@
+/* ==========================================================
+   Divine Delights - style.css
+   External stylesheet linked to every page of the website.
+   Author: Thapelo Mokoditoa
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. CSS RESET
+   Clears the different default styles that browsers add,
+   so the site looks the same in Chrome, Edge and Firefox.
+   ---------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ----------------------------------------------------------
+   2. COLOUR SCHEME AND BASE STYLES
+   The colours are stored once here as variables, so changing
+   one line changes the colour everywhere on the site.
+   ---------------------------------------------------------- */
+:root {
+    --pink-soft: #fbedf1;   /* page background */
+    --pink: #f3c9d6;        /* borders and lines */
+    --plum: #6e2c42;        /* headings */
+    --berry: #a4436b;       /* buttons and links */
+    --cream: #fffdfb;       /* cards and boxes */
+    --ink: #40343a;         /* body text */
+}
+
+body {
+    background-color: var(--pink-soft);
+    color: var(--ink);
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* ----------------------------------------------------------
+   3. TYPOGRAPHY
+   A type scale: each heading steps up in size so the page
+   has a clear order of importance.
+   ---------------------------------------------------------- */
+h1 {
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--plum);
+    line-height: 1.1;
+}
+
+h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--plum);
+    margin-bottom: 0.6em;
+}
+
+h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--plum);
+    margin-bottom: 0.4em;
+}
+
+p {
+    margin-bottom: 1em;
+    max-width: 65ch;   /* keeps lines short and easy to read */
+}
+
+.tagline {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    color: var(--berry);
+}
+
+
+/* ----------------------------------------------------------
+   4. PAGE LAYOUT (CSS GRID)
+   The whole page is a grid with four named areas stacked
+   on top of each other. "pagehero" is only used by the home
+   page; on the other pages that row is empty and takes no space.
+   ---------------------------------------------------------- */
+body {
+    display: grid;
+    grid-template-areas:
+        "pageheader"
+        "pagehero"
+        "pagemain"
+        "pagefooter";
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+}
+
+header {
+    grid-area: pageheader;
+}
+
+main {
+    grid-area: pagemain;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0 3rem 0;
+}
+
+footer {
+    grid-area: pagefooter;
+}
+
+
+/* ----------------------------------------------------------
+   5. HEADER AND NAVIGATION (FLEXBOX)
+   The logo and business name sit together on the left as a
+   "brand" group. The nav wraps onto its own line below,
+   which keeps the logo in the top-left corner on any
+   screen size, including small phones.
+   ---------------------------------------------------------- */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    background-color: var(--cream);
+    border-bottom: 3px solid var(--pink);
+    padding: 1rem 1.2rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+header img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;   /* square with softened corners, not a circle */
+    flex-shrink: 0;
+}
+
+.brand-text h1 {
+    font-size: 1.7rem;
+    line-height: 1.1;
+}
+
+.brand-text .tagline {
+    font-size: 0.85rem;
+}
+
+nav {
+    flex: 1;     /* nav fills the space between the brand and the button */
+    order: 2;
+}
+
+.header-button {
+    order: 3;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav a {
+    display: block;
+    padding: 0.6rem 1.1rem;
+    color: var(--plum);
+    border-radius: 999px;
+    transition: background-color 0.2s;
+}
+
+nav a:hover {
+    background-color: var(--pink);
+}
+
+nav a:focus {
+    outline: 3px solid var(--berry);
+    outline-offset: 2px;
+}
+
+nav a.current {
+    background-color: var(--berry);
+    color: var(--cream);
+}
+
+
+/* ----------------------------------------------------------
+   6. SECTIONS AND CARDS
+   ---------------------------------------------------------- */
+section {
+    background-color: var(--cream);
+    border: 1px solid var(--pink);
+    border-radius: 14px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 14px rgba(110, 44, 66, 0.08);
+}
+
+.hero {
+    background-color: var(--pink);
+    border: none;
+    text-align: center;
+}
+
+/* Gives the final section on a page (usually a closing call to
+   action, e.g. "Ready to order?") a soft pink background so it
+   stands out from the plain cream sections above it. */
+main section:last-of-type {
+    background-color: var(--pink);
+}
+
+/* The homepage hero: a full-width photo with the intro text on
+   top, sitting in its own row of the page grid above <main>.
+   The dark gradient keeps the white text readable, and the plain
+   --plum background-color shows if the photo file is missing. */
+.hero-banner {
+    grid-area: pagehero;
+    display: flex;
+    align-items: center;
+    min-height: 560px;
+    margin: 0;
+    padding: 3rem 0;
+    color: #fff;
+    background-color: var(--plum);
+    background-image:
+        linear-gradient(90deg, rgba(64, 20, 36, 0.8), rgba(64, 20, 36, 0.35)),
+        url("../images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.hero-banner-inner {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hero-banner h2 {
+    font-size: 3.4rem;
+    line-height: 1.1;
+    color: #fff;
+    max-width: 13em;
+}
+
+.hero-banner p {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.hero-banner .script-line {
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: 1.8rem;
+    color: var(--pink);
+    margin-bottom: 0.2em;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+}
+
+.hero-banner .button {
+    background-color: #fff;
+    color: var(--berry);
+}
+
+.hero-banner .button:hover {
+    background-color: var(--pink);
+    color: var(--plum);
+}
+
+.hero-banner .button-outline {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.hero-banner .button-outline:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+.hero-points li::before {
+    content: "\2022";
+    color: var(--pink);
+    margin-right: 0.4rem;
+}
+
+.hero h2 {
+    font-size: 2.3rem;
+}
+
+.hero p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price-list li,
+.contact-list li {
+    border-bottom: 1px dashed var(--pink);
+    padding: 0.7rem 0;
+}
+
+/* The card grid: three across on desktop, one on mobile */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+}
+
+.card {
+    background-color: var(--pink-soft);
+    border: 2px solid var(--berry);
+    border-radius: 12px;
+    padding: 1.2rem;
+}
+
+
+/* ----------------------------------------------------------
+   7. BUTTONS AND LINKS
+   ---------------------------------------------------------- */
+main a {
+    color: var(--berry);
+    border-bottom: 1px solid var(--pink);
+}
+
+main a:hover {
+    border-bottom-color: var(--berry);
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--berry);
+    color: var(--cream);
+    font-size: 1.05rem;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: var(--plum);
+}
+
+.button:focus {
+    outline: 3px solid var(--plum);
+    outline-offset: 2px;
+}
+
+.button:active {
+    background-color: var(--ink);
+}
+
+
+/* ----------------------------------------------------------
+   8. TABLES (MENU PAGE)
+   ---------------------------------------------------------- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+th,
+td {
+    border: 1px solid var(--pink);
+    padding: 0.8rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    background-color: var(--pink);
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--plum);
+}
+
+tbody tr:hover {
+    background-color: var(--pink-soft);
+}
+
+/* Lets a wide table slide sideways instead of breaking the page */
+.table-scroll {
+    overflow-x: auto;
+}
+
+
+/* ----------------------------------------------------------
+   9. FORMS
+   ---------------------------------------------------------- */
+label {
+    display: block;
+    font-weight: 700;
+    color: var(--plum);
+    margin-bottom: 0.3rem;
+}
+
+.field {
+    margin-bottom: 1.2rem;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.7rem;
+    border: 1px solid var(--pink);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--berry);
+    outline-offset: 1px;
+}
+
+/* Message shown under a box that was left empty */
+.error {
+    color: #b3261e;
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0 0;
+}
+
+/* Red border on the box that was left empty */
+input.invalid,
+textarea.invalid {
+    border-color: #b3261e;
+    border-width: 2px;
+}
+
+/* Message shown after a successful submit */
+.success {
+    margin-top: 1rem;
+    color: var(--plum);
+    font-weight: 700;
+}
+
+
+/* ----------------------------------------------------------
+   10. FOOTER
+   ---------------------------------------------------------- */
+footer {
+    background-color: var(--plum);
+    color: var(--pink-soft);
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+footer p {
+    margin: 0 auto;
+}
+
+
+/* ----------------------------------------------------------
+   10b. HOME PAGE SECTIONS AND WHATSAPP BUTTONS
+   ---------------------------------------------------------- */
+
+/* Sections that sit straight on the page background, no white box */
+.plain {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 1.5rem 0;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+.section-head p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--berry);
+    margin-bottom: 0.5rem;
+}
+
+/* Cards with a photo on top. If a photo file is missing, the
+   pink gradient behind it shows instead of a broken image. */
+.photo-card {
+    background-color: var(--cream);
+    border: 1px solid var(--pink);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(110, 44, 66, 0.08);
+}
+
+.photo {
+    height: 210px;
+    background-color: var(--pink);
+    background-size: cover;
+    background-position: center;
+}
+
+.photo-cakes {
+    background-image: url("../images/cake-custom.jpg"), linear-gradient(135deg, var(--pink), var(--berry));
+}
+
+.photo-cupcakes {
+    background-image: url("../images/cupcakes.jpg"), linear-gradient(135deg, var(--pink), var(--berry));
+}
+
+.photo-bento {
+    background-image: url("../images/bento.jpg"), linear-gradient(135deg, var(--pink), var(--berry));
+}
+
+.photo-card-body {
+    padding: 1.3rem;
+}
+
+.card-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Our story: photo on the left, text on the right */
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.split-photo {
+    position: relative;
+    min-height: 420px;
+    border-radius: 14px;
+    background-color: var(--pink);
+    background-image: url("../images/baker.jpg"), linear-gradient(135deg, var(--pink), var(--berry));
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 14px rgba(110, 44, 66, 0.15);
+}
+
+.badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: var(--berry);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    margin: 1.2rem 0;
+}
+
+.stat strong {
+    display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.8rem;
+    color: var(--berry);
+}
+
+.stat span {
+    font-size: 0.85rem;
+}
+
+/* "Why order from us": four small cards with an icon circle */
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+}
+
+.feature {
+    background-color: var(--cream);
+    border: 1px solid var(--pink);
+    border-radius: 14px;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(110, 44, 66, 0.08);
+}
+
+.icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 0.8rem auto;
+    border-radius: 50%;
+    background-color: var(--pink-soft);
+    border: 1px solid var(--pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.feature h3 {
+    font-size: 1.1rem;
+}
+
+.feature p {
+    font-size: 0.92rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta {
+    text-align: center;
+}
+
+.cta p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* WhatsApp: a green button in the header, a floating one in the
+   bottom-right corner of every page, and a green .button in the
+   call-to-action. */
+.whatsapp {
+    background-color: #0f7a45;
+    color: #fff;
+}
+
+.whatsapp:hover {
+    background-color: #0b6137;
+}
+
+.header-button,
+.whatsapp-float {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    transition: background-color 0.2s;
+}
+
+.whatsapp-float {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 20;
+    padding: 0.8rem 1.3rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==========================================================
+   11. RESPONSIVE DESIGN - MEDIA QUERIES
+   Breakpoints: mobile first, then tablet (600px),
+   then desktop (900px).
+   ========================================================== */
+
+/* SMALL LAPTOPS: the nav moves under the brand, button stays top right */
+@media screen and (max-width: 1000px) {
+    nav {
+        flex-basis: 100%;
+        order: 3;
+    }
+
+    .header-button {
+        order: 2;
+    }
+}
+
+/* TABLET: 900px and under */
+@media screen and (max-width: 900px) {
+    .cards,
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .split {
+        grid-template-columns: 1fr;
+    }
+
+    .split-photo {
+        min-height: 320px;
+    }
+
+    .hero-banner h2 {
+        font-size: 2.6rem;
+    }
+}
+
+/* MOBILE: under 600px - everything becomes one column */
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    /* Logo stays a fixed small square top-left; only the text
+       next to it shrinks, so the header stays compact on phones. */
+    header img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .brand-text h1 {
+        font-size: 1.3rem;
+    }
+
+    .brand-text .tagline {
+        font-size: 0.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        width: 94%;
+        padding-top: 1.2rem;
+    }
+
+    section {
+        padding: 1.1rem;
+    }
+
+    .cards,
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .header-button {
+        display: none;   /* the floating WhatsApp button is enough on phones */
+    }
+
+    .hero-banner {
+        min-height: 480px;
+    }
+
+    .hero-banner h2 {
+        font-size: 2rem;
+    }
+
+    .hero-banner .script-line {
+        font-size: 1.5rem;
+    }
+
+    .hero-buttons .button {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .photo {
+        height: 180px;
+    }
+
+    .whatsapp-float {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.3rem;
+    }
+
+    nav a {
+        text-align: center;
+        background-color: var(--pink-soft);
+    }
+}
+
+/* Respect users who ask for less movement */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none;
+    }
+}
+
+
+/* ==========================================================
+   12. RAINBOW MOUSE FOLLOWER
+   A coloured circle that follows the mouse, with little dots
+   that fade away behind it. It is made by js/script.js.
+   ========================================================== */
+.cursor-follower {
+    display: none;            /* hidden until the mouse moves */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    pointer-events: none;     /* so it never blocks clicks */
+    z-index: 30;
+    transform: translate(-50%, -50%);   /* centres it on the pointer */
+    transition: left 0.1s, top 0.1s;    /* smooth movement */
+}
+
+.sparkle {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 29;
+    transform: translate(-50%, -50%);
+    animation: fade 0.8s forwards;
+}
+
+@keyframes fade {
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2);
+    }
+}
+
+/* Phones have no mouse, so hide it there */
+@media (hover: none) {
+    .cursor-follower,
+    .sparkle {
+        display: none !important;
+    }
+}
