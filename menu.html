@@ -44,6 +44,7 @@
 
         <section class="menu-section">
             <h2>Cakes</h2>
+            <p class="hint">Click a photo to see it bigger.</p>
             <div class="table-scroll">
                 <table>
                     <thead>
@@ -61,8 +62,8 @@
                             <td>
                                 <!-- srcset and sizes let the browser pick the right image size
                                      for the screen. Add cake-basic-400.jpg to use the small one. -->
-                                <img src="images\300 cake.jpeg"
-                                     srcset="images\300 cake.jpeg"
+                                <img class="zoom" src="images\300-cake.jpeg"
+                                     srcset="images\300-cake.jpeg"
                                      sizes="(max-width: 600px) 90vw, 150px"
                                      alt="Basic vanilla cake" width="150">
                             </td>
@@ -72,8 +73,8 @@
                             <td>Custom cake</td>
                             <td>Includes an edible picture, balls and extra decorations</td>
                             <td>
-                                <img src="images\500 cake.jpeg"
-                                     srcset="images\500 cake.jpeg"
+                                <img class="zoom" src="images\500-cake-2.jpeg"
+                                     srcset="images\500-cake-2.jpeg"
                                      sizes="(max-width: 600px) 90vw, 150px"
                                      alt="Custom decorated cake" width="150">
                             </td>
@@ -83,8 +84,8 @@
                             <td>Premium cake</td>
                             <td>6 inch, 4 layers, fully customisable, quoted on request</td>
                             <td>
-                                <img src="images\600 cake .jpeg"
-                                     srcset="images\600 cake .jpeg"
+                                <img class="zoom" src="images\exclusive.jpeg"
+                                     srcset="images\exclusive.jpeg"
                                      sizes="(max-width: 600px) 90vw, 150px"
                                      alt="Premium four layer cake" width="150">
                             </td>
@@ -155,6 +156,17 @@
     </footer>
 
     <a class="whatsapp whatsapp-float" href="https://wa.me/27751999013" target="_blank" rel="noopener">Chat on WhatsApp</a>
+
+    <!-- The big picture view (lightbox) opened from the cake photos -->
+    <div class="lightbox" id="lightbox" hidden>
+        <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close picture">&times;</button>
+        <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" type="button" aria-label="Previous picture">&#10094;</button>
+        <figure class="lightbox-figure">
+            <img id="lightbox-img" alt="">
+            <figcaption id="lightbox-caption"></figcaption>
+        </figure>
+        <button class="lightbox-arrow lightbox-next" id="lightbox-next" type="button" aria-label="Next picture">&#10095;</button>
+    </div>
 
     <script src="javascript\validation.js"></script>
 
