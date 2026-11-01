@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divine Delights | Home</title>
+    <meta name="description" content="Divine Delights is a home based bakery in Pretoria West baking custom birthday cakes, cupcakes and bento cakes to order. See our prices and order online.">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
     <link rel="stylesheet" href="css\styles.css">
+    <noscript><style>.welcome { display: none; }</style></noscript>
 </head>
 <body>
 
+    <!-- Welcome screen: shown for 5 seconds the first time someone opens the site.
+         script.js changes the greeting to morning, afternoon or evening. -->
+    <div class="welcome" id="welcome">
+        <img src="images\logo delights.jpeg" alt="Divine Delights logo" width="110" height="110">
+        <h2 id="welcome-greeting">Welcome</h2>
+        <p class="welcome-line">Welcome to Divine Delights</p>
+        <p class="tagline">Made with Love, Served with Honor</p>
+    </div>
+
     <header>
         <div class="brand">
-            <img src="images/logo.jpg" alt="Divine Delights logo" width="60" height="60">
+            <img src="images\logo delights.jpeg" alt="Divine Delights logo" width="60" height="60">
             <div class="brand-text">
                 <h1>Divine Delights</h1>
                 <p class="tagline">Made with Love, Served with Honor</p>
@@ -33,59 +45,51 @@
          stretch across the whole screen. -->
     <section class="hero-banner">
         <div class="hero-banner-inner">
-            <p class="script-line">home baked since June 2026</p>
-            <h2>Custom cakes, baked with love in Pretoria West</h2>
-            <p>
-                Birthday cakes, cupcakes and bento cakes made fresh to order.
-                Send us your idea or a reference picture and we will bake it,
-                with prices shown up front.
-            </p>
-            <div class="hero-buttons">
-                <a class="button" href="order.html">Order a cake</a>
-                <a class="button button-outline" href="menu.html">View menu</a>
-                <a class="button button-outline" href="https://wa.me/27751999013" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            <div class="hero-text">
+                <p class="script-line">home baked since June 2026</p>
+                <h2>Custom cakes, baked with love in Pretoria West</h2>
+                <p>
+                    Birthday cakes, cupcakes and bento cakes made fresh to order.
+                    Send us your idea or a reference picture and we will bake it,
+                    with prices shown up front.
+                </p>
+                <div class="hero-buttons">
+                    <a class="button" href="order.html">Order a cake</a>
+                    <a class="button button-outline" href="menu.html">View menu</a>
+                    <a class="button button-outline" href="https://wa.me/27751999013" target="_blank" rel="noopener">Chat on WhatsApp</a>
+                </div>
+                <ul class="hero-points">
+                    <li>Prices shown up front</li>
+                    <li>Baked fresh to order</li>
+                    <li>Send your own reference picture</li>
+                    <li>Six flavours</li>
+                </ul>
             </div>
-            <ul class="hero-points">
-                <li>Prices shown up front</li>
-                <li>Baked fresh to order</li>
-                <li>Send your own reference picture</li>
-                <li>Six flavours</li>
-            </ul>
+
         </div>
     </section>
 
     <main>
-        <section class="plain">
-            <div class="section-head">
-                <p class="label">Bake. Order. Celebrate.</p>
-                <h2>Pick your treat</h2>
-                <p>Cakes, cupcakes or something small and sweet. Have a look at what we bake.</p>
-            </div>
-            <div class="cards">
-                <div class="photo-card">
-                    <div class="photo photo-cakes"></div>
-                    <div class="photo-card-body">
-                        <h3>Cakes</h3>
-                        <p>Basic, custom and premium cakes for birthdays and celebrations, from R300.</p>
-                        <a class="card-link" href="menu.html">See cake prices &rarr;</a>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <div class="photo photo-cupcakes"></div>
-                    <div class="photo-card-body">
-                        <h3>Cupcakes</h3>
-                        <p>R14 each, or R180 for a box of 12. Great for parties and gifts.</p>
-                        <a class="card-link" href="menu.html">See cupcake prices &rarr;</a>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <div class="photo photo-bento"></div>
-                    <div class="photo-card-body">
-                        <h3>Bento cakes</h3>
-                        <p>Small cakes from R250. Add a picture and cupcakes for a bit more.</p>
-                        <a class="card-link" href="menu.html">See bento prices &rarr;</a>
-                    </div>
-                </div>
+        <section class="occasion">
+            <p class="label">Bake. Order. Celebrate.</p>
+            <h2>A cake for every occasion</h2>
+            <p>Freshly baked in Pretoria West. Choose what you are celebrating and see the prices.</p>
+            <div class="occasion-tiles">
+                <a class="tile" href="menu.html">
+                    <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 4c3 3 3 6 0 8-3-2-3-5 0-8z"/><path d="M32 13v8"/><rect x="15" y="21" width="34" height="14" rx="3"/><rect x="8" y="35" width="48" height="20" rx="3"/><path d="M8 44c5-4 8-4 12 0s8 4 12 0 8-4 12 0 8 4 12 0"/></svg>
+                    <span class="tile-title">Celebration cakes</span>
+                    <span class="tile-price">from R300</span>
+                </a>
+                <a class="tile" href="menu.html">
+                    <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 32h30l-4 24H21z"/><path d="M26 32l2 24M38 32l-2 24"/><path d="M15 32c-4-8 2-12 8-12-2-10 14-14 18-4 8 0 11 10 8 16z"/></svg>
+                    <span class="tile-title">Cupcakes</span>
+                    <span class="tile-price">from R14 each</span>
+                </a>
+                <a class="tile" href="menu.html">
+                    <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 30h48v22a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3z"/><path d="M8 30l4-10h40l4 10"/><path d="M8 40c5-4 8-4 12 0s8 4 12 0 8-4 12 0 8 4 12 0"/><path d="M32 12c-3-4-9 0-5 4l5 5 5-5c4-4-2-8-5-4z"/></svg>
+                    <span class="tile-title">Bento cakes</span>
+                    <span class="tile-price">from R250</span>
+                </a>
             </div>
         </section>
 
@@ -150,6 +154,31 @@
                 <a class="button whatsapp" href="https://wa.me/27751999013" target="_blank" rel="noopener">Chat on WhatsApp</a>
             </p>
         </section>
+
+        <section class="plain">
+            <div class="section-head">
+                <p class="label">Gallery</p>
+                <h2>Our cakes</h2>
+                <p>Click a photo to see it bigger.</p>
+            </div>
+            <div class="gallery" id="gallery"></div>
+        </section>
+
+        <section class="plain" id="find-us">
+            <div class="section-head">
+                <p class="label">Find us</p>
+                <h2>Visit our shop</h2>
+            </div>
+            <div class="location">
+                <div class="location-info">
+                    <h3>Divine Delights</h3>
+                    <p>144 Mike de Duit, Danville<br>Pretoria West, South Africa</p>
+                    <p>Phone / WhatsApp: <a href="tel:+27751999013">075 199 9013</a></p>
+                    <p><a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=144+Mike+de+Duit+Danville+Pretoria" target="_blank" rel="noopener">Get directions</a></p>
+                </div>
+                <div class="map" id="map" role="img" aria-label="Map showing Divine Delights at 144 Mike de Duit, Danville"></div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -157,6 +186,20 @@
     </footer>
 
     <a class="whatsapp whatsapp-float" href="https://wa.me/27751999013" target="_blank" rel="noopener">Chat on WhatsApp</a>
+
+    <!-- The big picture view (lightbox) opened from the gallery -->
+    <div class="lightbox" id="lightbox" hidden>
+        <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close picture">&times;</button>
+        <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" type="button" aria-label="Previous picture">&#10094;</button>
+        <figure class="lightbox-figure">
+            <img id="lightbox-img" alt="">
+            <figcaption id="lightbox-caption"></figcaption>
+        </figure>
+        <button class="lightbox-arrow lightbox-next" id="lightbox-next" type="button" aria-label="Next picture">&#10095;</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="javascript\validation.js"></script>
 
 </body>
 </html>

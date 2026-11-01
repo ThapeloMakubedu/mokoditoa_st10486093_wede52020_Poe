@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divine Delights | Contact Us</title>
+    <meta name="description" content="Contact Divine Delights at 144 Mike de Duit, Danville, Pretoria West. Phone, WhatsApp and email details plus a message form.">
 
     <link rel="stylesheet" href="css\styles.css">
 </head>
@@ -11,7 +12,7 @@
 
     <header>
         <div class="brand">
-            <img src="images/logo.jpg" alt="Divine Delights logo" width="60" height="60">
+            <img src="images\logo delights.jpeg" alt="Divine Delights logo" width="60" height="60">
             <div class="brand-text">
                 <h1>Divine Delights</h1>
                 <p class="tagline">Made with Love, Served with Honor</p>
@@ -38,10 +39,9 @@
         <section>
             <h2>Our details</h2>
             <ul class="contact-list">
-                <li><strong>Location:</strong> Pretoria West, South Africa</li>
+                <li><strong>Location:</strong> 144 Mike de Duit, Danville, Pretoria West, South Africa</li>
                 <li><strong>Phone / WhatsApp:</strong> <a href="tel:+27751999013">075 199 9013</a></li>
                 <li><strong>Email:</strong> <a href="mailto:divinedelights@gmail.com">divinedelights@gmail.com</a></li>
-                <li><strong>Baking hours:</strong> Monday to Saturday, 08:00 to 18:00</li>
             </ul>
         </section>
 
@@ -58,6 +58,22 @@
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email">
                     <p class="error" id="email-error"></p>
+                </div>
+
+                <div class="field">
+                    <label for="phone">Phone number</label>
+                    <input type="tel" id="phone" name="phone">
+                    <p class="error" id="phone-error"></p>
+                </div>
+
+                <div class="field">
+                    <label for="messageType">Type of message</label>
+                    <select id="messageType" name="messageType">
+                        <option value="General question">General question</option>
+                        <option value="Cake enquiry">Cake enquiry</option>
+                        <option value="Feedback">Feedback</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
 
                 <div class="field">
@@ -78,7 +94,7 @@
 
     <a class="whatsapp whatsapp-float" href="https://wa.me/27751999013" target="_blank" rel="noopener">Chat on WhatsApp</a>
 
-    <script src="js/script.js"></script>
+    <script src="javascript\validation.js"></script>
 
 </body>
 </html>

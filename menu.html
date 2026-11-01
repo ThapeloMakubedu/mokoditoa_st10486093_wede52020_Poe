@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divine Delights | Menu &amp; Prices</title>
+    <meta name="description" content="Cake, cupcake and bento cake prices from Divine Delights in Pretoria West. Basic cakes from R300, cupcakes from R14, six flavours to choose from.">
 
     <link rel="stylesheet" href="css\styles.css">
 </head>
@@ -11,7 +12,7 @@
 
     <header>
         <div class="brand">
-            <img src="images/logo.jpg" alt="Divine Delights logo" width="60" height="60">
+            <img src="images\logo delights.jpeg" alt="Divine Delights logo" width="60" height="60">
             <div class="brand-text">
                 <h1>Divine Delights</h1>
                 <p class="tagline">Made with Love, Served with Honor</p>
@@ -35,7 +36,13 @@
             <p>All prices include baking, icing and decorating. Delivery is arranged separately.</p>
         </section>
 
-        <section>
+        <section class="search-section">
+            <label for="menuSearch">Search the menu</label>
+            <input type="search" id="menuSearch" placeholder="Try chocolate, cupcake or bento" autocomplete="off">
+            <p class="no-results" id="noResults" hidden>Sorry, nothing on the menu matches your search.</p>
+        </section>
+
+        <section class="menu-section">
             <h2>Cakes</h2>
             <div class="table-scroll">
                 <table>
@@ -54,8 +61,8 @@
                             <td>
                                 <!-- srcset and sizes let the browser pick the right image size
                                      for the screen. Add cake-basic-400.jpg to use the small one. -->
-                                <img src="images/cake-basic.jpg"
-                                     srcset="images/cake-basic.jpg 800w"
+                                <img src="images\300 cake.jpeg"
+                                     srcset="images\300 cake.jpeg"
                                      sizes="(max-width: 600px) 90vw, 150px"
                                      alt="Basic vanilla cake" width="150">
                             </td>
@@ -65,8 +72,8 @@
                             <td>Custom cake</td>
                             <td>Includes an edible picture, balls and extra decorations</td>
                             <td>
-                                <img src="images/cake-custom.jpg"
-                                     srcset="images/cake-custom.jpg 800w"
+                                <img src="images\500 cake.jpeg"
+                                     srcset="images\500 cake.jpeg"
                                      sizes="(max-width: 600px) 90vw, 150px"
                                      alt="Custom decorated cake" width="150">
                             </td>
@@ -76,8 +83,8 @@
                             <td>Premium cake</td>
                             <td>6 inch, 4 layers, fully customisable, quoted on request</td>
                             <td>
-                                <img src="images/cake-premium.jpg"
-                                     srcset="images/cake-premium.jpg 800w"
+                                <img src="images\600 cake .jpeg"
+                                     srcset="images\600 cake .jpeg"
                                      sizes="(max-width: 600px) 90vw, 150px"
                                      alt="Premium four layer cake" width="150">
                             </td>
@@ -88,7 +95,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="menu-section">
             <h2>Cupcakes</h2>
             <p>Cupcakes are R14 each.</p>
             <div class="table-scroll">
@@ -109,7 +116,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="menu-section">
             <h2>Bento cakes</h2>
             <div class="table-scroll">
                 <table>
@@ -128,7 +135,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="menu-section">
             <h2>Flavours</h2>
             <div class="cards">
                 <div class="card"><h3>Chocolate</h3><p>Rich and classic.</p></div>
@@ -148,6 +155,8 @@
     </footer>
 
     <a class="whatsapp whatsapp-float" href="https://wa.me/27751999013" target="_blank" rel="noopener">Chat on WhatsApp</a>
+
+    <script src="javascript\validation.js"></script>
 
 </body>
 </html>

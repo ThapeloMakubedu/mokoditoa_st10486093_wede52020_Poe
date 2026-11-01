@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divine Delights | Order a Cake</title>
+    <meta name="description" content="Order a custom cake from Divine Delights in Pretoria West. Choose your cake, flavour and date and we will send you a quote.">
 
     <link rel="stylesheet" href="css\styles.css">
 </head>
@@ -11,7 +12,7 @@
 
     <header>
         <div class="brand">
-            <img src="images/logo.jpg" alt="Divine Delights logo" width="60" height="60">
+            <img src="images\logo delights.jpeg" alt="Divine Delights logo" width="60" height="60">
             <div class="brand-text">
                 <h1>Divine Delights</h1>
                 <p class="tagline">Made with Love, Served with Honor</p>
@@ -82,6 +83,12 @@
                 </div>
 
                 <div class="field">
+                    <label for="needed">Date you need the cake</label>
+                    <input type="date" id="needed" name="needed">
+                    <p class="error" id="needed-error"></p>
+                </div>
+
+                <div class="field">
                     <label for="description">Describe what you want</label>
                     <textarea id="description" name="description" rows="5"></textarea>
                     <p class="error" id="description-error"></p>
@@ -104,12 +111,12 @@
     </main>
 
     <footer>
-        <p>Divine Delights &mdash; Pretoria West, South Africa</p>
+        <p>Divine Delights  Pretoria West, South Africa</p>
     </footer>
 
     <a class="whatsapp whatsapp-float" href="https://wa.me/27751999013" target="_blank" rel="noopener">Chat on WhatsApp</a>
 
-    <script src="js/script.js"></script>
+    <script src="javascript\validation.js"></script>
 
 </body>
 </html>
